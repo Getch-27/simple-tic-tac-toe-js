@@ -1,6 +1,6 @@
 let currentPlayer = "X";
 let gameEnded = false;
-
+const dashbord=document.getElementById("scoreDashbord");
 const cells = document.querySelectorAll(".cell");
 
 function handleCellClick(e) {
@@ -15,13 +15,13 @@ function handleCellClick(e) {
   e.target.textContent = currentPlayer;
 
   if (checkForWin()) {
-    alert(currentPlayer + " wins!");
+    dashbord.innerHTML=`${currentPlayer }  wins! `;
     gameEnded = true;
     return;
   }
 
   if (checkForDraw()) {
-    alert("Draw!");
+    dashbord.innerHTML="Draw!";
     gameEnded = true;
     return;
   }
@@ -66,3 +66,7 @@ function checkForDraw() {
 }
 
 cells.forEach((cell) => cell.addEventListener("click", handleCellClick));
+
+function Refresh(){
+location.reload();
+}
